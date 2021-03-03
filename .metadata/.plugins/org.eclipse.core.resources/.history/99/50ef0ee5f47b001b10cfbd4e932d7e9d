@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>은지의 게시판</title>
+  </head>
+  <body>
+    <jsp:include page="/Header.jsp" />
+
+    <h1 style="color: coral; text-align: justify">게시글 목록</h1>
+    <table border="1">
+      <td colspan="5" align="left">
+</td>
+        <tr>
+          
+          <th>제목</th>
+          <th>시작일</th>
+          <th>종료일</th>
+          <th>상태</th>
+          <th>삭제</th>
+        </tr>
+        <!-- 출력 될 게시판 -->
+        <c:forEach var="board" items="${ newList }">
+            <tr>
+                <td>${ board.bdTitle }</td>
+                <td>${ board.bdCdate }</td>
+                <td>${ board.bdCdate }</td>
+                <td>${ board.bdViews }</td>
+                <td><a href="Controller?del=0">[삭]</a></td>
+                
+            </tr>
+        </c:forEach>
+        
+    </table>
+  </body>
+</html>

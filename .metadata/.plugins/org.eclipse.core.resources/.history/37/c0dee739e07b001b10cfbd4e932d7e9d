@@ -1,0 +1,53 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import util.DatabaseUtil;
+
+public class NewDAO {
+
+	//데이터 가져오기
+	public ArrayList<NewDTO> getboardList() throws Exception {
+		
+		Connection conn = null;	//연결
+		Statement stmt = null;	// 데이터를 가져올 때 쓰는 변수
+		ResultSet rs = null;	// 가져온 데이터 정보를 담는 그릇
+		
+		
+		ArrayList<NewDTO> newDTOList = new ArrayList<NewDTO>();
+		
+		try {
+			conn = DatabaseUtil.getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("select * from board");
+			
+		
+			while(rs.next()) {
+				NewDTO newDTO = new NewDTO()
+						.setBdTitle(rs.getString("bdTitle"))
+						.setBdCdate(rs.getDate("bdCdate"))
+						.setBdEdate(rs.getDate("bdEdate"))
+						.setBdViews(rs.getInt("bdViews"));
+				newDTOList.add(newDTO);
+				
+				
+				
+			}
+			
+			
+			
+			
+		} catch (Exception e) {
+			
+		}
+		
+		
+		
+		return newDTOList;
+		
+		
+	}
+}

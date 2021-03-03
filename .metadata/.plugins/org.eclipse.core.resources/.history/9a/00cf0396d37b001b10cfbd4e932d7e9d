@@ -1,0 +1,37 @@
+package model;
+
+import java.sql.Date;
+
+public class NewDTO {
+
+	String bdTitle;
+	Date bdCdate;
+	Date bdEdate;
+	int bdViews;
+	public String getBdTitle() {
+		return bdTitle;
+	}
+	public NewDTO setBdTitle(String bdTitle) {
+		this.bdTitle = bdTitle;
+	}
+	public Date getBdCdate() {
+		return bdCdate;
+	}
+	public NewDTO setBdCdate(Date bdCdate) {
+		this.bdCdate = bdCdate;
+	}
+	public Date getBdEdate() {
+		return bdEdate;
+	}
+	public NewDTO setBdEdate(Date bdEdate) {
+		this.bdEdate = bdEdate;
+	}
+	public int getBdViews() {
+		return bdViews;
+	}
+	public vNewDTOoid setBdViews(int bdViews) {
+		this.bdViews = bdViews;
+	}
+	
+	
+}

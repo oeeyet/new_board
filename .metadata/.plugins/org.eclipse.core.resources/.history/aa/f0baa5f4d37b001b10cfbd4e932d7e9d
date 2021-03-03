@@ -1,0 +1,7 @@
+package model;
+
+public class NewDAO {
+
+	//데이터 가져오기
+	
+}

@@ -1,0 +1,49 @@
+package controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.NewDAO;
+import model.NewDTO;
+import paging.Paging;
+
+@WebServlet("/controller/IndexController")
+public class IndexController extends HttpServlet {
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		try {
+			
+			String num = null;
+			if(req.getParameter("no") != null) {
+				num = req.getParameter("no");
+			}
+			NewDAO newDAO = new NewDAO();
+			int pageCount = newDAO.getListCount();
+			Paging paging = new Paging(Integer.parseInt(num), pageCount);
+			
+			ArrayList<NewDTO> newList = newDAO.getSelectNewList(paging.getStartRow(), paging.getEndRow());
+			
+			System.out.println(pageCount);
+			System.out.println(paging.getTotalRow());
+			
+			req.setAttribute("newList", newList);
+			req.setAttribute("paging", paging);
+			
+			resp.setContentType("text/html; charset=UTF-8");
+			RequestDispatcher rd = req.getRequestDispatcher("/index.jsp");
+					rd.include(req, resp);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

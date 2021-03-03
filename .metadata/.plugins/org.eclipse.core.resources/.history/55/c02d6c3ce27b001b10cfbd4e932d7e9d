@@ -1,0 +1,7 @@
+package paging;
+
+public class Paging {
+	int pageCount = 0;	// 총 페이지 수 
+	int pageBlock = 10;	// 한 페이지에 보여줄 페이지 블럭 수 
+	int pageSize = 10;	// 한 블럭에 보여줄 리스트 갯 
+}

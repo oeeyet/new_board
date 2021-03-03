@@ -1,0 +1,7 @@
+package paging;
+
+public class Paging {
+	int pageCount = 0;	// 총 페이지 수 
+	int pageBlock = 10;
+	int pageSize = 10;
+}
