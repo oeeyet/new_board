@@ -1,9 +1,0 @@
-package model;
-
-public class NewDAO {
-
-	String bdTitle;
-	Date bdCdate;
-	Date bdEdate;
-	int bdViews;
-}
