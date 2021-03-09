@@ -1,0 +1,9 @@
+package testservlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/Servlet02")
+public class Servlet02 extends HttpServlet{
+
+}
